@@ -1,0 +1,44 @@
+    <!-- <input type="text" v-model="search">
+    <div v-for="name in filteredName" :key="name">
+      {{ name }}
+    </div> -->
+
+    <!-- <h1>Person One</h1>
+    <p>{{ personOne.name }} - {{ personOne.age }}</p>
+    <button @click="changeOne">Change One</button>
+
+    <h1>Person Two</h1>
+    <p>{{ personTwo.name }} - {{ personTwo.age }}</p>
+    <button @click="changeTwo">Change Two</button> -->
+    <!-- <h1>Home page</h1>
+    <p>Hi I'm {{ name }} and {{ age }} years old.</p>
+    <input v-model="name" type="text" />
+    <button @click="clicked">click</button>
+    <button @click="age++">Increase Age</button> -->
+    //computed
+    // let search = ref("");
+    // let names = ref(["aungaung", "wai wai", "kyaw kyaw", "moe moe"]);
+    // let filteredName = computed(() => {
+    //   return names.value.filter(name => {
+    //     return name.includes(search.value)
+    //   })
+    // })
+    // return { names, search, filteredName }
+
+    // let personOne = ref({ name: "kyaw kyaw", age: 20 }); //ref()
+    // let changeOne = () => {
+    //   personOne.value.name = "aa" // .value
+    // }
+
+    // let personTwo = reactive({ name: "Wai Wai", age: 18 }); //reactive()
+    // let changeTwo = () => {
+    //   personTwo.name = "bb" // no need .value but only in obj and array
+    // }
+    // return { personOne, changeOne, personTwo, changeTwo }
+    // let name = ref("Wai Linn Aung"); //reactive value
+    // // console.log(name)
+    // let age = ref(19);
+    // let clicked = () => {
+    //   name.value = "Kyaw Kyaw"
+    // }
+    // return { name, age, clicked }
