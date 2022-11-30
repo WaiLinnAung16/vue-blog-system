@@ -2,6 +2,7 @@
     <div v-if="post" class="post">
         <h2>{{ post.title }}</h2>
         <p>{{ post.body }}</p>
+        <button class="delete" @click="deletePost">Delete</button>
     </div>
     <div v-else>
         <LoadSpin></LoadSpin>
@@ -13,16 +14,25 @@
 import LoadSpin from '../components/loadSpin'
 import getPost from '../composable/getPost';
 import { useRoute } from 'vue-router';
+import { useRouter } from 'vue-router';
+import { db } from '@/firebase/config';
 
 export default {
     components: { LoadSpin },
     props: ["id"], //this.$route.params.id
     setup(props) {
         let route = useRoute();
+        let router = useRouter();
         // console.log(route)
         let { post, error, load } = getPost(route.params.id);
+        let id = props.id;
+        let deletePost = async () => {
+            await db.collection("posts").doc(id).delete();
+            router.push("/")
+        }
+
         load();
-        return { post, error }
+        return { post, error, deletePost }
     }
 }
 </script>
@@ -64,5 +74,9 @@ export default {
     padding: 8px;
     border-radius: 20px;
     font-size: 14px;
+}
+
+button.delete {
+    margin: 25px auto;
 }
 </style>

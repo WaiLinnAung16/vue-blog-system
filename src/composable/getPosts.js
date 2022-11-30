@@ -5,12 +5,10 @@ let getPosts = () => {
   let error = ref("");
   let fetchPost = async () => {
     try {
-      let response = await fetch("http://localhost:3000/posts");
-      let datas = await response.json();
-      posts.value = datas;
-      if (response.status === 404) {
-        throw new Error("Url Not Found");
-      }
+      let res = await db.collection("posts").get();
+      posts.value = res.docs.map((doc) => {
+        return { id: doc.id, ...doc.data() };
+      });
     } catch (err) {
       error.value = err.message;
     }
